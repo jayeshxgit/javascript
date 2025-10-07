@@ -206,12 +206,12 @@ const fs = require('fs');
 
 function jk(){
     return new Promise(function(resolve){ // promise is a class, can initialize outside or inside the function.
-        fs.read("a.txt", "utf-8", function(err,data)){ // async task is being performed.
+        fs.read("a.txt", "utf-8", function(err,data)) { // async task is being performed.
             resolve(data); // whenever this is called then the function inside .then() is called.
+        }
         });
-
-    })
-} // promise pending means resolve hasn't been called yet.
+    }
+ // promise pending means resolve hasn't been called yet.
 
 function ontime(data){
     console.log(data)
@@ -253,6 +253,7 @@ function myownsetTimout(fn, duration){
 myownsetTimout(function(){
     console.log("hi there"), 1000
 })
+
 // promises(this is a better approach)
 function calls(duration){
     let p = new Promise(function(resolve){
