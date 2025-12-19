@@ -6,10 +6,10 @@
 // Run each function to see the output, play and learn by doing.
 
 // Length
-function getLength(str) { 
-  console.log("Length:", str.length);
+function getstringlenth(str){
+  console.log("length:", str.length);
 }
-getLength("Hello World");
+getstringlenth("jayesh")
 
 // const str= "jayesh";
 // console.log(str.length) method to use string functions
@@ -53,7 +53,7 @@ function splitString(str, separator) {
 }
 splitString("Hello World", " ");
 
-// trim
+// trim-: removes white spaces from a string from beginning and end.
 function trimString(str) {
   console.log("After trim:", str.trim());
 }

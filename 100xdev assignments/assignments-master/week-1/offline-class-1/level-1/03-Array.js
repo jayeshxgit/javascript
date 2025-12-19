@@ -30,6 +30,23 @@ function popExample(arr) {
 }
 popExample([1, 2, 3]);
 
+/* SLICE method. no mutation
+let arr = [10, 20, 30, 40, 50];
+
+let result = arr.slice(1, 4);
+
+console.log(result); // [20, 30, 40]
+console.log(arr);    // [10, 20, 30, 40, 50]
+
+SPLICE method. mutates
+let arr = [10, 20, 30, 40, 50];
+
+let removed = arr.splice(1, 2);
+
+console.log(removed); // [20, 30]
+console.log(arr);     // [10, 40, 50]
+*/
+
 // shift() (it removes element at 0th index in an array )
 function shiftExample(arr) {
 
@@ -71,7 +88,7 @@ function flog(fn){
 }
 iniarray.forEach(flog)
 
-// map()
+// map()-: does modification to an array and creates a new one. arr.map(x => x * 2);
 function mapExample(arr) {
 
   let newArr = arr.map(function(item) {
@@ -81,7 +98,7 @@ function mapExample(arr) {
 }
 mapExample([1, 2, 3]);
 
-// filter()
+// filter()-: filters and select new items. arr.filter(n=> n>3);
 function filterExample(arr) {
 
   let newArr = arr.filter(function(item) {
@@ -91,7 +108,7 @@ function filterExample(arr) {
 }
 filterExample([1, 2, 3, 4, 5]);
 
-// find()
+// find() first matching element. arr.find(x=> x==4);
 function findExample(arr) {
 
   let found = arr.find(function(item) {
@@ -101,7 +118,7 @@ function findExample(arr) {
 }
 findExample([1, 2, 3, 4, 5]);
 
-// sort()
+// sort() -: arr.sort((a,b)=> a-b); mutates the array
 function sortExample(arr) {
 
   arr.sort(function(a, b) {
@@ -110,3 +127,4 @@ function sortExample(arr) {
   console.log("After sort:", arr);
 }
 sortExample([5, 2, 3, 4, 1]);
+// arr.reverse(); 

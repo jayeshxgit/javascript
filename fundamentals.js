@@ -1,7 +1,16 @@
+//                            JAVASCRIPT NOTES
+
+// variables-: containers for data.
+/*
+:dynamically typed language(no need to mention what type of value stored in variable.)
+: Let-: Here variable cannot be re-declareed but can be updated. A block scope variable.
+: const-: Here variable cannot be re-declareed or updated. A block scope variable.
+: var-: can be redeclared or updated.
+*/
 let a=1;
 a=3;
 console.log(a);
-var bol=2
+var bol=2;
  
 // if const a=1; and now if you change, it will show an error because it stores permanent value.
 let fname="jayesh";
@@ -27,7 +36,7 @@ console.log(answer);
 
 // Arrays. (like lists)
 // print the even ages.
-const Age=[21,22,23,24,25,26];
+const Age=[21,22,23,24,25,26]; // used const here because mutation is allowed(only internal data changes not the variable);
 // Age.length tells the size of elements in array that is 6
 for (let i=0; i<Age.length; i++){
     if (Age[i]%2==0){
@@ -35,8 +44,8 @@ for (let i=0; i<Age.length; i++){
     }
 }
 
-const ln1=["hi","hello","hola"]
-const ln2=[1,1,3]
+const ln1=["hi","hello","hola"];
+const ln2=[1,1,3];
 
 for (let i=0; i<ln1.length; i++){
     if (ln2[i]==1){
