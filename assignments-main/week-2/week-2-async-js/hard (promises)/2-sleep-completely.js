@@ -5,6 +5,18 @@
  */
 
 function sleep(milliseconds) {
+return new Promise((resolve) =>{
+    const data = new Date();
+
+/*
+This loop continuously checks the elapsed time and keeps the JS thread busy until
+the required milliseconds have passed, effectively blocking the event loop.
+*/
+    while(new Date()-data < milliseconds){ // this blocks the thread(a bad practice) here unlike async task which lets the thread go further.
+ }
+    resolve();
+});
+
 }
 
 module.exports = sleep;

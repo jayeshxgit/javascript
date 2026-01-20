@@ -2,20 +2,25 @@
 
 // variables-: containers for data.
 /*
-:dynamically typed language(no need to mention what type of value stored in variable.)
+: dynamically typed language(no need to mention what type of value stored in variable. 
+
 : Let-: Here variable cannot be re-declareed but can be updated. A block scope variable.
 : const-: Here variable cannot be re-declareed or updated. A block scope variable.
+          It only means the binding (the variable reference) cannot change.
 : var-: can be redeclared or updated.
 */
-let a=1;
-a=3;
+
+// let and const are block scoped, meaning they only exist inside the { } where they’re declared.
+
+let a=1; // declared here
+a=3;     // value updated here
 console.log(a);
 var bol=2;
  
 // if const a=1; and now if you change, it will show an error because it stores permanent value.
 let fname="jayesh";
 let age="19";
-console.log("my name is " + fname+ " and my age is "+ age);
+console.log(" my name is " + fname + " and my age is " + age);
 // other way is write 4 console.log() it will show the same output.
  
 // conditional statements.
@@ -54,7 +59,7 @@ for (let i=0; i<ln1.length; i++){
 }
 // objects. (like dictionaries)
 const user={
-    firstname:"jayesh, aman",
+    firstname:"jayesh",
     AGe: [1,2,3]
 }
 for (let i=0; i<user.AGe.length; i++){
@@ -120,6 +125,7 @@ function sum(a,b){
     return a+b;
 }
 
+
 const values = ca(1,2,sum); // sum is being called inside ca function.
 console.log(values);
 
@@ -131,7 +137,7 @@ function displayr(data){
 
 }
 function sum (a,b){ 
-   let ans = a+b;
+   let ans = a+b;  
     return ans; // it basically returns the value of the function to the caller.
 }
 displayr(sum(1,5))
@@ -164,7 +170,7 @@ console.log(value2);  // Output: 60
 
 // Async function.
 // can imagine the dry run on latentflip.com
-//  workflow of Asyn functions call stack -> web apis -> callback queue -> event loop -> call stack.
+// workflow of Async functions call stack -> web apis -> callback queue -> event loop -> call stack.
 function summ(n){
 let answe= 0;
 
@@ -194,7 +200,7 @@ return a;
 syncsleep(); // this makes the function perform only one task.
 console.log("hello");
 
-// another example to understand fileread function; try to dry run this.f
+// another example to understand file-read function; try to dry run this.f
 const fs = require('fs');
 function print(err, data){
     if (err){
@@ -204,8 +210,8 @@ function print(err, data){
         console.log(data);
     }
 }
-fs.readFile("a.txt" , "utf-8", print)
-console.log("done")
+fs.readFile("a.txt" , "utf-8", print);
+console.log("done");
 
 // PROMISES. 
 // it's just syntatic sugar still uses callbacks under the hood.
@@ -213,13 +219,15 @@ console.log("done")
 // understand the logic of sending the promise to function so that callback happens once the promise is fulfilled which is when cursor reaches resolve and shares data.
 const fs = require('fs');
 
-function jk(){
+// read the working theorey for this program.
+function jk(){ // storing the promise inside the function so that it can be reused again when function is called. 
     return new Promise(function(resolve){ // promise is a class, can initialize outside or inside the function.
         fs.read("a.txt", "utf-8", function(err,data)) { // async task is being performed.
             resolve(data); // whenever this is called then the function inside .then() is called.
         }
         });
-    }
+}
+ 
  // promise pending means resolve hasn't been called yet.
 
 function ontime(data){
@@ -234,8 +242,8 @@ jk().then(ontime); // .then(ontime) means: “When the Promise resolves, pass it
 let p =new promise(function(resolve){
     resolve("hi there");
 });
-p.then(function(){
-    console.log(p);
+p.then(function(data){  // whenever a promise is returned then we can call .then command on it.
+    console.log(data);
 })
 
 // ASYNC AWAIT.(even more cleaned version of normal promise syntax)
@@ -245,7 +253,7 @@ function jkk(){
         resolve("hi there"); //resolve(...) tells JavaScript: “This async operation is done, and here’s the result.
         
     });
-    return p;
+    return p; // returning the promise is necessary.
 }
 async function main(){
     const value = await jkk();
@@ -273,13 +281,42 @@ function calls(duration){
     });
     return p;
 }
-async function calling(){
-    const values= await calls(2000);
-    console.log(values);
+async function calling(){ // ASYNC function always returns a promise.
+    const values= await calls(2000); // this is basically returning a promise.
+    console.log(values); 
 }
 calling();
+// rejects and err concept in promises.
+function kj(){
+    return new promise(function(resolve,reject){
+        fs.readFile("anonymous.txt", "utf-8", function(err,data){
+            //err
+            if(err){
+                reject("file not found");
+            }
+            else{
+                resolve(data)
+            }
+        })
+    })
+}
 
+kj().then(function(x){
+    console.log(x);
+}).catch(function(e){
+    console.log(e);
+})
 
+// using async await method
+async function main() {
+  try {
+    const data = await kj(); // waits till Promise resolves
+    console.log(data);
+  } catch (e) {
+    console.log(e);
+  }
+}
 
+main();
 
 

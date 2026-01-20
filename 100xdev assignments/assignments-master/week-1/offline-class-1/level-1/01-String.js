@@ -30,12 +30,19 @@ function findLastIndexOf(str, target) {
 findLastIndexOf("Hello World World", "World");
 
 // slice
+
+// splice method same as slice(difference is that original thing changes here.)
+
+//  a.slice(0,start) + a.slice(end); gives the part of string which is not sliced.
+// a.slice(start,end) gives the part of string which is sliced.
+// accepts -ve indexs
 function getSlice(str, start, end) {
   console.log("After slice:", str.slice(start, end));
 }
 getSlice("Hello World", 0, 5);
 
 // substring same as slice.
+// treats -ve indexs as 0.
 function getSubstring(str, start, end) {
   console.log("After substring:", str.substring(start, end));
 }

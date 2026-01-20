@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href = "style.css">
+    </head>
+<body>
+    <h1>Todo list</h1>
+    <h2>take class</h2>
+    <h2>do assignments</h2>
+    <div>
+    <input type="text" placeholder = "add todo"><br>
+    <button onclick="jayesh()"> Add Todo</button>
+    </div>
+    <script>
+        function jayesh() {
+        const inputEL = document.querySelector('input'); // this gives me reference to this input node for manipulation.
+        const buttonEL = document.querySelector('button');
+        console.log(inputEL);
+        console.log(inputEL.value);
+        console.log(buttonEL);
+        
+
+        }
+        let ctr =0;
+        function callback(){
+            console.log(ctr);
+            
+            ctr++;
+            }
+        setInterval(callback,1000);
+    </script>
+
+</body>
+</html> 

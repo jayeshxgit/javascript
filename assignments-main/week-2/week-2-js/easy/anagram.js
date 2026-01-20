@@ -13,11 +13,11 @@ function isAnagram(str1, str2) {
 
     // Helper function to sort characters in a string
     function sortString(str) {
-        return str.toLowerCase().split('').sort().join('');
+        return str.toLowerCase().split('').sort().join(''); // important js method.
     }
   
     // Sort and compare the sorted strings
-    return sortString(str1) === sortString(str2);
+    return sortString(str1) == sortString(str2);
   }
 
 

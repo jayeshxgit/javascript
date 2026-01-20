@@ -24,13 +24,14 @@ console.log(farray);  // Output: [1, 2, 3, 4, 5, 6]
 
 // pop()
 function popExample(arr) {
-
+  // pop() removes the LAST element of an array and returns it.
+  // It mutates the original array.
   arr.pop();
   console.log("After pop:", arr);
 }
 popExample([1, 2, 3]);
 
-/* SLICE method. no mutation
+/* SLICE method. no mutation (MUCH BETTER)
 let arr = [10, 20, 30, 40, 50];
 
 let result = arr.slice(1, 4);
@@ -38,10 +39,19 @@ let result = arr.slice(1, 4);
 console.log(result); // [20, 30, 40]
 console.log(arr);    // [10, 20, 30, 40, 50]
 
+To add an element inside the array at a specific position.
+let arr = [10, 20, 40, 50];
+
+arr.splice(2, 0, 30);  can use slice as well only the mutation difference will stay.
+// insert 30 at index 2
+
+console.log(arr); // [10, 20, 30, 40, 50]
+
+
 SPLICE method. mutates
 let arr = [10, 20, 30, 40, 50];
 
-let removed = arr.splice(1, 2);
+let removed = arr.splice(1, 2); : starts at index 1 and removes 2 elements.
 
 console.log(removed); // [20, 30]
 console.log(arr);     // [10, 40, 50]
@@ -73,6 +83,17 @@ function concatExample(arr1, arr2) {
 concatExample([1, 2, 3], [4, 5, 6]);
 
 // forEach() (it is just like callback function here it will take another function as an argument.)
+/*
+let arr = [10, 20, 30];
+
+arr.forEach((val, i, a) => {
+  a[i] = val + 5;
+});
+
+console.log(arr);
+
+*/
+
 function forEachExample(arr) {
 
   arr.forEach(function(item, index) {
@@ -88,7 +109,7 @@ function flog(fn){
 }
 iniarray.forEach(flog)
 
-// map()-: does modification to an array and creates a new one. arr.map(x => x * 2);
+// map()-: does modification to an array and creates a new one. arr.map(x => x * 2); (arr.map(value,index,arr)) remember this for manipulation.
 function mapExample(arr) {
 
   let newArr = arr.map(function(item) {
@@ -128,3 +149,11 @@ function sortExample(arr) {
 }
 sortExample([5, 2, 3, 4, 1]);
 // arr.reverse(); 
+// sort examples.
+const users = [
+  { name: "Jayesh", age: 20 },
+  { name: "Aman", age: 18 }
+];
+
+users.sort((a, b) => a.age - b.age);
+

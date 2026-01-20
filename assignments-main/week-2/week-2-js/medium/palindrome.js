@@ -4,7 +4,15 @@
 */
 
 function isPalindrome(str) {
+  str=str.toLowerCase();
+  str=str.replace(/\s/g, ""); // something important.
+  const arr = str.split("");
+  arr.reverse();
+  const rev_str = arr.join("");
+  if (str==rev_str){
   return true;
+}
+else return false;
 }
 
 module.exports = isPalindrome;
