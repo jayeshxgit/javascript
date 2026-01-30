@@ -6,7 +6,7 @@
 
 : Let-: Here variable cannot be re-declareed but can be updated. A block scope variable.
 : const-: Here variable cannot be re-declareed or updated. A block scope variable.
-          It only means the binding (the variable reference) cannot change.
+          It only means the binding (the variable reference) cannot change but the content can change.
 : var-: can be redeclared or updated.
 */
 
@@ -15,7 +15,7 @@
 let a=1; // declared here
 a=3;     // value updated here
 console.log(a);
-var bol=2;
+var bol=2;e
  
 // if const a=1; and now if you change, it will show an error because it stores permanent value.
 let fname="jayesh";
@@ -198,6 +198,14 @@ return a;
 }
 
 syncsleep(); // this makes the function perform only one task.
+
+function syncSleep(ms) {
+  const start = Date.now();
+  while (Date.now() - start < ms) {
+    // busy waiting (do nothing)
+  }
+}
+
 console.log("hello");
 
 // another example to understand file-read function; try to dry run this.f
